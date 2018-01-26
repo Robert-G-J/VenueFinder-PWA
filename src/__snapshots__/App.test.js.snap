@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The App component renders correctly 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="search__input"
+  >
+    <h1>
+      VenueSearch Component
+    </h1>
+    <div>
+      <label />
+      <input
+        onChange={[Function]}
+        type="text"
+      />
+      <button
+        onClick={[Function]}
+      >
+        Search
+      </button>
+    </div>
+  </div>
+</div>
+`;
