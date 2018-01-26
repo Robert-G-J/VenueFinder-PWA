@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Query Picker component renders correctly 1`] = `
+<div
+  className="picker"
+>
+  <ul
+    className="picker__list"
+  >
+    <li
+      className="picket__item"
+    >
+      <button
+        onClick={undefined}
+      />
+    </li>
+  </ul>
+</div>
+`;
