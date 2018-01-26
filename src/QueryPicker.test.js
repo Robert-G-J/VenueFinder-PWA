@@ -1,10 +1,10 @@
 import React from "react";
+import QueryPicker from "./QueryPicker";
 import renderer from "react-test-renderer";
-import App from "./App";
 
-describe("The App component", () => {
+describe("The Query Picker component", () => {
   it("renders correctly", () => {
-    const tree = renderer.create(<App />).toJSON();
+    const tree = renderer.create(<QueryPicker />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
