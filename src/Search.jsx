@@ -14,18 +14,21 @@ class Search extends Component {
     // state declaration
     this.state = {
       queryParams: {
-        ll: "37.7749, -122.4194",
+        ll: null,
         query: null,
         v: "20170801"
       },
       queryResponse: [],
-      locationText: ""
+      locationText: "",
+      latitude: null,
+      longitude: null
     };
 
     // bindings
     this.onChangeSearchField = this.onChangeSearchField.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleLocationTextChange = this.handleLocationTextChange.bind(this);
+    this.handleCoordinatesChange = this.handleCoordinatesChange.bind(this);
   }
 
   onChangeSearchField(e) {
@@ -41,12 +44,21 @@ class Search extends Component {
     });
   }
 
+  handleCoordinatesChange(latitude, longitude) {
+    this.setState({ latitude: latitude, longitude: longitude });
+    let lat = parseFloat(latitude);
+    let lon = parseFloat(longitude);
+    this.setState({
+      queryParams: { ...this.state.queryParams, ll: `${lat}, ${lon}` }
+    });
+  }
+
   handleLocationTextChange(locationText) {
     this.setState({ locationText: locationText });
   }
 
   render() {
-    const { queryResponse, locationText } = this.state;
+    const { queryResponse, locationText, latitude, longitude } = this.state;
 
     return (
       <div className="search__body">
@@ -54,7 +66,10 @@ class Search extends Component {
           <h1>Search Component</h1>
           <SearchLocation
             locationText={locationText}
-            onChange={this.handleLocationTextChange}
+            latitude={latitude}
+            longitude={longitude}
+            onLocationTextChange={this.handleLocationTextChange}
+            onCoordinatesChange={this.handleCoordinatesChange}
           />
           <div>
             <label htmlFor="search-input" className="search-input__label" />
