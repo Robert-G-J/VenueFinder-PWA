@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./search.css";
+import SearchLocation from "./SearchLocation";
 import SpotTable from "./SpotTable";
 
 const foursquare = require("react-foursquare")({
@@ -17,12 +18,14 @@ class Search extends Component {
         query: null,
         v: "20170801"
       },
-      queryResponse: []
+      queryResponse: [],
+      locationText: ""
     };
 
     // bindings
     this.onChangeSearchField = this.onChangeSearchField.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleLocationTextChange = this.handleLocationTextChange.bind(this);
   }
 
   onChangeSearchField(e) {
@@ -38,16 +41,28 @@ class Search extends Component {
     });
   }
 
+  handleLocationTextChange(locationText) {
+    this.setState({ locationText: locationText });
+  }
+
   render() {
-    const { queryResponse } = this.state;
+    const { queryResponse, locationText } = this.state;
 
     return (
       <div className="search__body">
         <div className="search-input">
           <h1>Search Component</h1>
+          <SearchLocation
+            locationText={locationText}
+            onChange={this.handleLocationTextChange}
+          />
           <div>
             <label htmlFor="search-input" className="search-input__label" />
-            <input type="text" onChange={this.onChangeSearchField} />
+            <input
+              type="text"
+              placeholder="Search spots... "
+              onChange={this.onChangeSearchField}
+            />
             <button onClick={this.handleClick}>Search</button>
           </div>
         </div>

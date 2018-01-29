@@ -10,6 +10,21 @@ exports[`The search component renders correctly 1`] = `
     <h1>
       Search Component
     </h1>
+    <div
+      className="search-location__body"
+    >
+      <input
+        className="search-location__input"
+        onChange={[Function]}
+        placeholder="Choose location, or..."
+        type="text"
+      />
+      <button
+        className="search-location__button"
+      >
+        Use current
+      </button>
+    </div>
     <div>
       <label
         className="search-input__label"
@@ -17,6 +32,7 @@ exports[`The search component renders correctly 1`] = `
       />
       <input
         onChange={[Function]}
+        placeholder="Search spots... "
         type="text"
       />
       <button
