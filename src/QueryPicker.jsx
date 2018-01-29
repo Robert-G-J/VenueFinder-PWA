@@ -1,11 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 
-const QueryPicker = () => (
+const QueryPicker = ({ venues, id }) => (
   <div className="picker">
     <ul className="picker__list">
-      <li className="picket__item">
-        <button onClick={alert("krang!")} />
-      </li>
+      {venues.map((venue, index) => (
+        <li key={`item-${index}`} className="picker__item">
+          <button>{venue.name}</button>
+        </li>
+      ))}
     </ul>
   </div>
 );

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import "./venue-search.css";
+import QueryPicker from "./QueryPicker";
 
 const foursquare = require("react-foursquare")({
   clientID: "A150E11L5JS0WTGP0C1F5E4HAJHKDICLYKQIQTDGX4K21LLE",
@@ -37,15 +39,19 @@ class VenueSearch extends Component {
   }
 
   render() {
+    const { queryResponse } = this.state;
+
     return (
-      <div className="search__input">
-        <h1>VenueSearch Component</h1>
-        <div>
-          <label />
-          <input type="text" onChange={this.onChangeSearchField} />
-          <button onClick={this.handleClick}>Search</button>
+      <div className="venue-search__body">
+        <div className="search-input">
+          <h1>VenueSearch Component</h1>
+          <div>
+            <label htmlFor="search-input" className="search-input__label" />
+            <input type="text" onChange={this.onChangeSearchField} />
+            <button onClick={this.handleClick}>Search</button>
+          </div>
         </div>
-        {/* <div>{this.state.queryResponse && this.state.queryResponse.map()}</div> */}
+        <QueryPicker venues={queryResponse} />
       </div>
     );
   }

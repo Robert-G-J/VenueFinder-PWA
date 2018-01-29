@@ -5,22 +5,36 @@ exports[`The App component renders correctly 1`] = `
   className="App"
 >
   <div
-    className="search__input"
+    className="venue-search__body"
   >
-    <h1>
-      VenueSearch Component
-    </h1>
-    <div>
-      <label />
-      <input
-        onChange={[Function]}
-        type="text"
+    <div
+      className="search-input"
+    >
+      <h1>
+        VenueSearch Component
+      </h1>
+      <div>
+        <label
+          className="search-input__label"
+          htmlFor="search-input"
+        />
+        <input
+          onChange={[Function]}
+          type="text"
+        />
+        <button
+          onClick={[Function]}
+        >
+          Search
+        </button>
+      </div>
+    </div>
+    <div
+      className="picker"
+    >
+      <ul
+        className="picker__list"
       />
-      <button
-        onClick={[Function]}
-      >
-        Search
-      </button>
     </div>
   </div>
 </div>
