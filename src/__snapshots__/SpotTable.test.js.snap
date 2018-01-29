@@ -2,10 +2,10 @@
 
 exports[`The Query Picker component renders correctly 1`] = `
 <div
-  className="picker"
+  className="spot-table"
 >
   <ul
-    className="picker__list"
+    className="spot-table__list"
   />
 </div>
 `;

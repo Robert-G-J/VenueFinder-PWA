@@ -1,18 +1,18 @@
-.venue-search__body {
+.search__body {
   background-color: white;
   font-family: Quicksand, Verdana, Geneva, Tahoma, sans-serif;
 }
-.venue-search__body h1 {
+.search__body h1 {
   font-size: 2rem;
 }
-.venue-search__body p {
+.search__body p {
   font-size: 0.8rem;
   color: #606060;
 }
-.venue-search__body .picker {
+.search__body .spot-table {
   position: relative;
 }
-.venue-search__body .picker .picker__list {
+.search__body .spot-table .spot-table__list {
   position: absolute;
   top: 0;
   left: 0;
@@ -22,12 +22,12 @@
   overflow: auto;
   background-color: white;
 }
-.venue-search__body .picker .picker__list .picker__item {
+.search__body .spot-table .spot-table__list .spot-table__item {
   padding: 5px;
   border-bottom: #999 solid 1px;
   cursor: pointer;
 }
-.venue-search__body .picker .picker__list .picker__item:hover {
+.search__body .spot-table .spot-table__list .spot-table__item:hover {
   background-color: #333;
   color: whitesmoke;
 }

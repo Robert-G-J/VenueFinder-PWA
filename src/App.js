@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-import VenueSearch from "./VenueSearch";
+import Search from "./Search";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <VenueSearch />
+        <Search />
       </div>
     );
   }

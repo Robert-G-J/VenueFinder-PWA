@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import "./venue-search.css";
-import QueryPicker from "./QueryPicker";
+import "./search.css";
+import SpotTable from "./SpotTable";
 
 const foursquare = require("react-foursquare")({
   clientID: "A150E11L5JS0WTGP0C1F5E4HAJHKDICLYKQIQTDGX4K21LLE",
   clientSecret: "UEYU0RJNPXDXLDY5FNF1DTSZJ4HO3CUEBTNHTJWDJNB1WLPX"
 });
 
-class VenueSearch extends Component {
+class Search extends Component {
   constructor(props) {
     super(props);
     // state declaration
@@ -42,18 +42,18 @@ class VenueSearch extends Component {
     const { queryResponse } = this.state;
 
     return (
-      <div className="venue-search__body">
+      <div className="search__body">
         <div className="search-input">
-          <h1>VenueSearch Component</h1>
+          <h1>Search Component</h1>
           <div>
             <label htmlFor="search-input" className="search-input__label" />
             <input type="text" onChange={this.onChangeSearchField} />
             <button onClick={this.handleClick}>Search</button>
           </div>
         </div>
-        <QueryPicker venues={queryResponse} />
+        <SpotTable venues={queryResponse} />
       </div>
     );
   }
 }
-export default VenueSearch;
+export default Search;

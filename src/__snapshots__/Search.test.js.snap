@@ -2,13 +2,13 @@
 
 exports[`The search component renders correctly 1`] = `
 <div
-  className="venue-search__body"
+  className="search__body"
 >
   <div
     className="search-input"
   >
     <h1>
-      VenueSearch Component
+      Search Component
     </h1>
     <div>
       <label
@@ -27,10 +27,10 @@ exports[`The search component renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="picker"
+    className="spot-table"
   >
     <ul
-      className="picker__list"
+      className="spot-table__list"
     />
   </div>
 </div>
