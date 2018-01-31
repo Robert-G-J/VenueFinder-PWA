@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./search.css";
 import SearchBar from "./SearchBar";
 import SearchLocation from "./SearchLocation";
-import SpotTable from "./SpotTable";
+import SpotList from "./SpotList";
 import { searchByCoords, searchByText } from "./services/fsqExplore";
 
 class Search extends Component {
@@ -102,7 +102,7 @@ class Search extends Component {
           handleClick={this.handleClick}
           handleQueryChange={this.handleQueryChange}
         />
-        <SpotTable items={queryResponse} />
+        <SpotList items={queryResponse} />
       </div>
     );
   }

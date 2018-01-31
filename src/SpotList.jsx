@@ -1,6 +1,6 @@
 import React from "react";
 
-const SpotTable = ({ items, id }) => (
+const SpotList = ({ items, id }) => (
   <div className="spot-table">
     <ul className="spot-table__list">
       {items.map((item, index) => (
@@ -12,4 +12,4 @@ const SpotTable = ({ items, id }) => (
   </div>
 );
 
-export default SpotTable;
+export default SpotList;
