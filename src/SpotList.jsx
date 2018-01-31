@@ -1,13 +1,10 @@
 import React from "react";
+import SpotItem from "./SpotItem";
 
 const SpotList = ({ items, id }) => (
   <div className="spot-table">
     <ul className="spot-table__list">
-      {items.map((item, index) => (
-        <li key={`item-${index}`} className="spot-table__item">
-          <button>{item.venue.name}</button>
-        </li>
-      ))}
+      {items.map((item, index) => <SpotItem item={item} index={index} />)}
     </ul>
   </div>
 );
