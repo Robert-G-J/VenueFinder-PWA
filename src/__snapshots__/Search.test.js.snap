@@ -4,43 +4,44 @@ exports[`The search component renders correctly 1`] = `
 <div
   className="search__body"
 >
+  <h1>
+    Search Component
+  </h1>
   <div
-    className="search-input"
+    className="search-location__body"
   >
-    <h1>
-      Search Component
-    </h1>
-    <div
-      className="search-location__body"
+    <input
+      className="search-location__input"
+      onChange={[Function]}
+      placeholder="Choose location, or..."
+      type="text"
+    />
+    <button
+      className="search-location__button"
+      onClick={[Function]}
     >
-      <input
-        className="search-location__input"
-        onChange={[Function]}
-        placeholder="Choose location, or..."
-        type="text"
-      />
-      <button
-        className="search-location__button"
-      >
-        Use current
-      </button>
-    </div>
-    <div>
-      <label
-        className="search-input__label"
-        htmlFor="search-input"
-      />
-      <input
-        onChange={[Function]}
-        placeholder="Search spots... "
-        type="text"
-      />
-      <button
-        onClick={[Function]}
-      >
-        Search
-      </button>
-    </div>
+      Use current
+    </button>
+  </div>
+  <div
+    className="search-bar"
+  >
+    <label
+      className="search-bar__label"
+      htmlFor="search-bar"
+    />
+    <input
+      className="search-bar__input"
+      onChange={[Function]}
+      placeholder="Search spots..."
+      type="text"
+    />
+    <button
+      className="search-bar__button"
+      onClick={[Function]}
+    >
+      Search
+    </button>
   </div>
   <div
     className="spot-table"

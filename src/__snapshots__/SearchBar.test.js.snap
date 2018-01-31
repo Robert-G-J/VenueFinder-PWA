@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The search bar componenet renders correctly 1`] = `
+<div
+  className="search-bar"
+>
+  <label
+    className="search-bar__label"
+    htmlFor="search-bar"
+  />
+  <input
+    className="search-bar__input"
+    onChange={undefined}
+    placeholder="Search spots..."
+    type="text"
+  />
+  <button
+    className="search-bar__button"
+    onClick={undefined}
+  >
+    Search
+  </button>
+</div>
+`;

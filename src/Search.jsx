@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import "./search.css";
+import SearchBar from "./SearchBar";
 import SearchLocation from "./SearchLocation";
 import SpotTable from "./SpotTable";
-
-const foursquare = require("react-foursquare")({
-  clientID: "A150E11L5JS0WTGP0C1F5E4HAJHKDICLYKQIQTDGX4K21LLE",
-  clientSecret: "UEYU0RJNPXDXLDY5FNF1DTSZJ4HO3CUEBTNHTJWDJNB1WLPX"
-});
+import { searchByCoords, searchByText } from "./services/fsqExplore";
 
 class Search extends Component {
   constructor(props) {
@@ -16,7 +13,8 @@ class Search extends Component {
       queryParams: {
         ll: null,
         query: null,
-        v: "20170801"
+        near: null,
+        v: "20180101" // versioning- update as often as possible
       },
       queryResponse: [],
       locationText: "",
@@ -29,18 +27,38 @@ class Search extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleLocationTextChange = this.handleLocationTextChange.bind(this);
     this.handleCoordinatesChange = this.handleCoordinatesChange.bind(this);
+    this.handleQueryChange = this.handleQueryChange.bind(this);
+    this.usingLocation = this.usingLocation.bind(this);
+    this.searchForVenues = this.searchForVenues.bind(this);
   }
 
   onChangeSearchField(e) {
     this.setState({ query: e.target.value });
   }
 
+  usingLocation() {
+    return this.state.queryParams.ll != null;
+  }
+
+  searchForVenues() {
+    if (this.usingLocation()) {
+      return searchByCoords(this.state.queryParams);
+    } else {
+      return searchByText(this.state.queryParams);
+    }
+  }
+
   handleClick(e) {
     e.preventDefault();
-    foursquare.venues.getVenues(this.state.queryParams).then(res => {
-      console.log("FSQ response", res);
-      this.setState({ queryResponse: res.response.venues });
-      console.log("FSQ Response set in state");
+    this.searchForVenues().then(res => {
+      console.log("FSQ response", res.response.groups[0].items);
+      this.setState({ queryResponse: res.response.groups[0].items });
+    });
+  }
+
+  handleQueryChange(e) {
+    this.setState({
+      queryParams: { ...this.state.queryParams, query: e.target.value }
     });
   }
 
@@ -55,33 +73,36 @@ class Search extends Component {
 
   handleLocationTextChange(locationText) {
     this.setState({ locationText: locationText });
+    this.setState({
+      queryParams: { ...this.state.queryParams, near: locationText }
+    });
   }
 
   render() {
-    const { queryResponse, locationText, latitude, longitude } = this.state;
+    const {
+      queryParams,
+      queryResponse,
+      locationText,
+      latitude,
+      longitude
+    } = this.state;
 
     return (
       <div className="search__body">
-        <div className="search-input">
-          <h1>Search Component</h1>
-          <SearchLocation
-            locationText={locationText}
-            latitude={latitude}
-            longitude={longitude}
-            onLocationTextChange={this.handleLocationTextChange}
-            onCoordinatesChange={this.handleCoordinatesChange}
-          />
-          <div>
-            <label htmlFor="search-input" className="search-input__label" />
-            <input
-              type="text"
-              placeholder="Search spots... "
-              onChange={this.onChangeSearchField}
-            />
-            <button onClick={this.handleClick}>Search</button>
-          </div>
-        </div>
-        <SpotTable venues={queryResponse} />
+        <h1>Search Component</h1>
+        <SearchLocation
+          locationText={locationText}
+          latitude={latitude}
+          longitude={longitude}
+          onLocationTextChange={this.handleLocationTextChange}
+          onCoordinatesChange={this.handleCoordinatesChange}
+        />
+        <SearchBar
+          query={queryParams.query}
+          handleClick={this.handleClick}
+          handleQueryChange={this.handleQueryChange}
+        />
+        <SpotTable items={queryResponse} />
       </div>
     );
   }

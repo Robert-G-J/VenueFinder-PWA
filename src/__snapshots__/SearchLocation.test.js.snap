@@ -12,6 +12,7 @@ exports[`The SearchLocation component renders correctly 1`] = `
   />
   <button
     className="search-location__button"
+    onClick={[Function]}
   >
     Use current
   </button>
