@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The SpotItem component renders correctly 1`] = `
+<li
+  className="spot-table__item"
+>
+  <button>
+    test
+  </button>
+</li>
+`;
