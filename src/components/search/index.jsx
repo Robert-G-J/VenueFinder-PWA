@@ -1,14 +1,13 @@
 import React, { Component } from "react";
-import "./search.css";
-import SearchBar from "./SearchBar";
-import SearchLocation from "./SearchLocation";
-import SpotList from "./SpotList";
-import { searchByCoords, searchByText } from "./services/fsqExplore";
+import "./index.css";
+import SearchBar from "../searchBar";
+import SearchLocation from "../searchLocation";
+import SpotList from "../spotList";
+import { searchByCoords, searchByText } from "../../services/fsqExplore";
 
 class Search extends Component {
   constructor(props) {
     super(props);
-    // state declaration
     this.state = {
       queryParams: {
         ll: null,

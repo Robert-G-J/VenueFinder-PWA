@@ -1,5 +1,5 @@
 import React from "react";
-import SpotItem from "./SpotItem";
+import SpotItem from "../spotItem";
 
 const SpotList = ({ items, id }) => (
   <div className="spot-table">

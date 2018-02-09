@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The search bar componenet renders correctly 1`] = `
+exports[`The search bar component renders correctly 1`] = `
 <div
   className="search-bar"
 >
