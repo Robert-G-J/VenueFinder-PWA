@@ -12,14 +12,12 @@
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css":
-      "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "eslint-check":
-      "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "selenium-setup": "selenium-standalone install",
     "selenium-start": "selenium-standalone start",
     "e2e-tests": "wdio wdio.conf.js",
