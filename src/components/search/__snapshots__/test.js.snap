@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The Search component renders correctly 1`] = `
+exports[`Search app renders correctly 1`] = `
 <div
   className="search__body"
 >
