@@ -1,6 +1,6 @@
 import React from "react";
 import SearchLocation from ".";
-import { shallow } from "react";
+import { shallow } from "enzyme";
 import renderer from "react-test-renderer";
 
 describe("The SearchLocation component", () => {
