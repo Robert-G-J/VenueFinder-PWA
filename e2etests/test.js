@@ -11,13 +11,15 @@ describe("Location searching", () => {
 
   it("Should allow me to search by current location", () => {
     const spotText = "coffee";
-    browser.url("http://localhost:3000/");
-    browser
-      .click(".search-location__button")
+    const clickEvent = browser
+      .url("http://localhost:3000/")
+      .click(".search-location__button") // needs to wait until browser returns coords
       .element(".search-bar__input")
       .setValue(spotText)
-      .click(".search-bar__button");
-    const list = browser.element(".spot-table__list").getText();
-    expect(list).to.eq("Friska");
+      .click(".search-bar__button")
+      .waitForExist(".spot-table__item")
+      .then(function() {
+        browser.element(".spot-table__item").getValue();
+      });
   });
 });
