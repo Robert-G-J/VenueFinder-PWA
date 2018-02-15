@@ -1,7 +1,10 @@
+/* global document */
+
 import React from "react";
 import ReactDOM from "react-dom";
-import thunk from "redux-thunk";
+// import { Provider } from "react-redux";
 import Search from "./components/search/";
+// import store from "./store";
 import registerServiceWorker from "./registerServiceWorker";
 
 import "./index.css";
