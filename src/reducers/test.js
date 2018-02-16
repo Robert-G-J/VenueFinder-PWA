@@ -39,4 +39,19 @@ describe("Reducers", () => {
       expect(reducer(startingState, action)).toEqual(expectedState);
     });
   });
+
+  describe("Fails to get position from navigator", () => {
+    it("should return the correct state", () => {
+      const action = {
+        type: types.GET_POSITION_FAILURE
+      };
+      const startingState = {
+        isGetting: true
+      };
+      const expectedState = {
+        isGetting: false
+      };
+      expect(reducer(startingState, action)).toEqual(expectedState);
+    });
+  });
 });
