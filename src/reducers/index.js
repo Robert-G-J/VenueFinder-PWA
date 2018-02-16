@@ -11,6 +11,12 @@ export const reducer = (state = initialState, action) => {
         ...state,
         isGetting: true
       };
+    case types.GET_POSITION_SUCCESS:
+      return {
+        ...state,
+        isGetting: false,
+        ...action.coords
+      };
     default:
       return state;
   }

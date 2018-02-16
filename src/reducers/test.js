@@ -18,4 +18,25 @@ describe("Reducers", () => {
       expect(reducer(undefined, action)).toEqual(expectedState);
     });
   });
+
+  describe("Successfully gets position from navigator", () => {
+    it("should return the correct state", () => {
+      const coords = {
+        lat: 50,
+        long: 0
+      };
+      const action = {
+        type: types.GET_POSITION_SUCCESS,
+        coords
+      };
+      const startingState = {
+        isGetting: true
+      };
+      const expectedState = {
+        isGetting: false,
+        ...coords
+      };
+      expect(reducer(startingState, action)).toEqual(expectedState);
+    });
+  });
 });
