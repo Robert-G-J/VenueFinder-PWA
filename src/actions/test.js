@@ -2,7 +2,6 @@
 
 import thunk from "redux-thunk";
 import configureMockStore from "redux-mock-store";
-import types from "../constants";
 import * as actions from ".";
 
 const middlewares = [thunk];
