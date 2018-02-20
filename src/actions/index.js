@@ -5,10 +5,10 @@ export const isGettingCurrentPosition = {
   type: types.IS_GETTING_POSITION
 };
 
-export const currentPositionSuccess = coords => {
+export const currentPositionSuccess = position => {
   return {
     type: types.GET_POSITION_SUCCESS,
-    coords
+    position: position
   };
 };
 
@@ -23,8 +23,9 @@ export function getPosition() {
       dispatch(isGettingCurrentPosition);
       navigator.geolocation.getCurrentPosition(
         // success
-        coords => {
-          dispatch(currentPositionSuccess(coords));
+        position => {
+          console.log("successfully got position", position);
+          dispatch(currentPositionSuccess(position));
           resolve();
         },
         () => {

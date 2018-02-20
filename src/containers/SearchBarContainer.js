@@ -3,7 +3,9 @@ import { getPosition } from "../actions";
 
 import SearchBar from "../components/searchBar/SearchBar";
 
-const mapStateToProps = state => {};
+const mapStateToProps = state => {
+  state;
+};
 
 const mapDispatchToProps = dispatch => ({
   getPosition: () => {

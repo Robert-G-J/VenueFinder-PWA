@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import { connect } from "redux";
 import "./index.css";
 import SearchBarContainer from "../../containers/SearchBarContainer";
-import SearchLocation from "../searchLocation/SearchLocation";
 import SpotList from "../spotList/SpotList";
-import * as actions from "../../actions";
 import { searchByCoords, searchByText } from "../../services/fsqExplore";
 
 class Search extends Component {
@@ -26,19 +23,12 @@ class Search extends Component {
     // bindings
     this.onChangeSearchField = this.onChangeSearchField.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.handleLocationTextChange = this.handleLocationTextChange.bind(this);
-    this.handleCoordinatesChange = this.handleCoordinatesChange.bind(this);
     this.handleQueryChange = this.handleQueryChange.bind(this);
-    this.usingLocation = this.usingLocation.bind(this);
     this.searchForVenues = this.searchForVenues.bind(this);
   }
 
   onChangeSearchField(e) {
     this.setState({ query: e.target.value });
-  }
-
-  usingLocation() {
-    return this.state.queryParams.ll != null;
   }
 
   searchForVenues() {
@@ -59,22 +49,6 @@ class Search extends Component {
   handleQueryChange(e) {
     this.setState({
       queryParams: { ...this.state.queryParams, query: e.target.value }
-    });
-  }
-
-  handleCoordinatesChange(latitude, longitude) {
-    this.setState({ latitude, longitude });
-    const lat = parseFloat(latitude);
-    const lon = parseFloat(longitude);
-    this.setState({
-      queryParams: { ...this.state.queryParams, ll: `${lat}, ${lon}` }
-    });
-  }
-
-  handleLocationTextChange(locationText) {
-    this.setState({ locationText });
-    this.setState({
-      queryParams: { ...this.state.queryParams, near: locationText }
     });
   }
 
