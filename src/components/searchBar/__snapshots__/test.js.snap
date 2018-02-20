@@ -10,15 +10,15 @@ exports[`The search bar component renders correctly 1`] = `
   />
   <input
     className="search-bar__input"
-    onChange={undefined}
+    onChange={[Function]}
     placeholder="Search spots..."
     type="text"
   />
   <button
     className="search-bar__button"
-    onClick={undefined}
+    onClick={[Function]}
   >
-    Search
+    Search near me
   </button>
 </div>
 `;

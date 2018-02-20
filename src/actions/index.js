@@ -1,5 +1,4 @@
 /* eslint-disable */
-import thunk from "redux-thunk";
 import types from "../constants";
 
 export const isGettingCurrentPosition = {

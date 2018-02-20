@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "redux";
 import "./index.css";
-import SearchBar from "../searchBar";
+import SearchBarContainer from "../../containers/SearchBarContainer";
 import SearchLocation from "../searchLocation";
 import SpotList from "../spotList";
+import * as actions from "../../actions";
 import { searchByCoords, searchByText } from "../../services/fsqExplore";
 
 class Search extends Component {
@@ -42,9 +44,8 @@ class Search extends Component {
   searchForVenues() {
     if (this.usingLocation()) {
       return searchByCoords(this.state.queryParams);
-    } else {
-      return searchByText(this.state.queryParams);
     }
+    return searchByText(this.state.queryParams);
   }
 
   handleClick(e) {
@@ -62,16 +63,16 @@ class Search extends Component {
   }
 
   handleCoordinatesChange(latitude, longitude) {
-    this.setState({ latitude: latitude, longitude: longitude });
-    let lat = parseFloat(latitude);
-    let lon = parseFloat(longitude);
+    this.setState({ latitude, longitude });
+    const lat = parseFloat(latitude);
+    const lon = parseFloat(longitude);
     this.setState({
       queryParams: { ...this.state.queryParams, ll: `${lat}, ${lon}` }
     });
   }
 
   handleLocationTextChange(locationText) {
-    this.setState({ locationText: locationText });
+    this.setState({ locationText });
     this.setState({
       queryParams: { ...this.state.queryParams, near: locationText }
     });
@@ -89,18 +90,14 @@ class Search extends Component {
     return (
       <div className="search__body">
         <h1>Search Component</h1>
-        <SearchLocation
+        {/* <SearchLocation
           locationText={locationText}
           latitude={latitude}
           longitude={longitude}
           onLocationTextChange={this.handleLocationTextChange}
           onCoordinatesChange={this.handleCoordinatesChange}
-        />
-        <SearchBar
-          query={queryParams.query}
-          handleClick={this.handleClick}
-          handleQueryChange={this.handleQueryChange}
-        />
+        /> */}
+        <SearchBarContainer />
         <SpotList items={queryResponse} />
       </div>
     );

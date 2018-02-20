@@ -8,22 +8,6 @@ exports[`Search app renders correctly 1`] = `
     Search Component
   </h1>
   <div
-    className="search-location__body"
-  >
-    <input
-      className="search-location__input"
-      onChange={[Function]}
-      placeholder="Choose location, or..."
-      type="text"
-    />
-    <button
-      className="search-location__button"
-      onClick={[Function]}
-    >
-      Use current
-    </button>
-  </div>
-  <div
     className="search-bar"
   >
     <label
@@ -40,7 +24,7 @@ exports[`Search app renders correctly 1`] = `
       className="search-bar__button"
       onClick={[Function]}
     >
-      Search
+      Search near me
     </button>
   </div>
   <div
