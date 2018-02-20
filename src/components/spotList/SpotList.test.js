@@ -1,5 +1,5 @@
 import React from "react";
-import SpotList from ".";
+import SpotList from "./SpotList";
 import { shallow } from "enzyme";
 import renderer from "react-test-renderer";
 

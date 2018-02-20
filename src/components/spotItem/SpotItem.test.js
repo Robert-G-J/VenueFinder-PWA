@@ -1,5 +1,5 @@
 import React from "react";
-import SpotItem from ".";
+import SpotItem from "./SpotItem";
 import { shallow } from "enzyme";
 import renderer from "react-test-renderer";
 

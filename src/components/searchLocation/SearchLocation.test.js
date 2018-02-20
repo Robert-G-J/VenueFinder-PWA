@@ -1,5 +1,5 @@
 import React from "react";
-import SearchLocation from ".";
+import SearchLocation from "./SearchLocation";
 import { shallow } from "enzyme";
 import renderer from "react-test-renderer";
 

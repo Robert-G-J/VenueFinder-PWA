@@ -1,14 +1,9 @@
 import { connect } from "react-redux";
 import { getPosition } from "../actions";
 
-import SearchBar from "../components/searchBar";
+import SearchBar from "../components/searchBar/SearchBar";
 
-const mapStateToProps = state => {
-  console.log(state);
-  return {
-    bla: state.SearchApp.bla
-  };
-};
+const mapStateToProps = state => {};
 
 const mapDispatchToProps = dispatch => ({
   getPosition: () => {

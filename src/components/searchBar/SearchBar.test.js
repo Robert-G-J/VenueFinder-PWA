@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import React from "react";
-import SearchBar from ".";
+import SearchBar from "./SearchBar";
 import renderer from "react-test-renderer";
 import { shallow, mount } from "enzyme";
 

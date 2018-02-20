@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import React from "react";
-import Search from ".";
+import Search from "./Search";
 import { shallow } from "enzyme";
 import renderer from "react-test-renderer";
 

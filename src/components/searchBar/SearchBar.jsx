@@ -14,20 +14,17 @@ const SearchBar = ({ getPosition, handleQueryChange, bla }) => (
     <button
       className="search-bar__button"
       onClick={() => {
-        console.log(bla);
         getPosition();
       }}
     >
       Search near me
     </button>
-    {bla}
   </div>
 );
 
 SearchBar.propTypes = {
   getPosition: PropTypes.func,
-  handleQueryChange: PropTypes.func.isRequired,
-  bla: PropTypes.string
+  handleQueryChange: PropTypes.func.isRequired
 };
 
 export default SearchBar;
