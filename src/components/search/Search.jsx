@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./index.css";
 import SearchBarContainer from "../../containers/SearchBarContainer";
 import SpotList from "../spotList/SpotList";
-import { searchByCoords, searchByText } from "../../services/fsqExplore";
+import { suggestCompletion } from "../../services/fsqAPI";
 
 class Search extends Component {
   constructor(props) {
@@ -24,26 +24,18 @@ class Search extends Component {
     this.onChangeSearchField = this.onChangeSearchField.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleQueryChange = this.handleQueryChange.bind(this);
-    this.searchForVenues = this.searchForVenues.bind(this);
   }
 
   onChangeSearchField(e) {
     this.setState({ query: e.target.value });
   }
 
-  searchForVenues() {
-    if (this.usingLocation()) {
-      return searchByCoords(this.state.queryParams);
-    }
-    return searchByText(this.state.queryParams);
-  }
-
   handleClick(e) {
     e.preventDefault();
-    this.searchForVenues().then(res => {
-      console.log("FSQ response", res.response.groups[0].items);
-      this.setState({ queryResponse: res.response.groups[0].items });
-    });
+    // this.searchForVenues().then(res => {
+    //   console.log("FSQ response", res.response.groups[0].items);
+    //   this.setState({ queryResponse: res.response.groups[0].items });
+    // });
   }
 
   handleQueryChange(e) {
