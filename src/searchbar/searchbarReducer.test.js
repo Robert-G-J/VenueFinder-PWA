@@ -1,6 +1,6 @@
 /* global describe, expect, it */
 import types from "../constants";
-import { reducer, initialState } from ".";
+import { reducer, initialState } from "./searchbarReducer";
 
 describe("Reducers", () => {
   it("Should return the initial state when no action is passed", () => {

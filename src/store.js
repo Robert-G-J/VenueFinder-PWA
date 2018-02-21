@@ -1,9 +1,9 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
-import SearchApp from "./reducers";
+import SearchBar from "./searchbar/searchbarReducer";
 
 const reducers = combineReducers({
-  SearchApp
+  SearchBar
 });
 
 export default createStore(

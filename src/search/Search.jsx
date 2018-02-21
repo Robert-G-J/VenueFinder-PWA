@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import "./index.css";
-import SearchBarContainer from "../../containers/SearchBarContainer";
-import SpotList from "../spotList/SpotList";
-import { suggestCompletion } from "../../services/fsqAPI";
+import SearchBarContainer from "../searchbar/SearchBarContainer";
+import SpotList from "../spot-list/SpotList";
 
 class Search extends Component {
   constructor(props) {
