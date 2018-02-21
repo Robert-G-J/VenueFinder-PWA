@@ -13,7 +13,9 @@ describe("Reducers", () => {
         type: types.IS_GETTING_POSITION
       };
       const expectedState = {
-        isGetting: true
+        position: {
+          isGetting: true
+        }
       };
       expect(reducer(undefined, action)).toEqual(expectedState);
     });
@@ -21,21 +23,35 @@ describe("Reducers", () => {
 
   describe("Successfully gets position from navigator", () => {
     it("should return the correct state", () => {
-      const coords = {
-        lat: 50,
-        long: 0
+      const position = {
+        coords: {
+          latitude: 50,
+          longitude: 0,
+          accuracy: 5
+        }
       };
+
       const action = {
         type: types.GET_POSITION_SUCCESS,
-        coords
+        position
       };
+
       const startingState = {
-        isGetting: true
+        ...initialState,
+        position: {
+          isGetting: true
+        }
       };
+
       const expectedState = {
-        isGetting: false,
-        ...coords
+        position: {
+          isGetting: false,
+          coords: {
+            ...position.coords
+          }
+        }
       };
+
       expect(reducer(startingState, action)).toEqual(expectedState);
     });
   });
@@ -45,11 +61,17 @@ describe("Reducers", () => {
       const action = {
         type: types.GET_POSITION_FAILURE
       };
+
       const startingState = {
-        isGetting: true
+        position: {
+          isGetting: true
+        }
       };
+
       const expectedState = {
-        isGetting: false
+        position: {
+          isGetting: false
+        }
       };
       expect(reducer(startingState, action)).toEqual(expectedState);
     });
