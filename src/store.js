@@ -2,12 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import SearchBar from "./searchbar/searchbarReducer";
 
-const reducers = combineReducers({
+const rootReducer = combineReducers({
   SearchBar
 });
 
 export default createStore(
-  reducers,
+  rootReducer,
   {},
   compose(
     applyMiddleware(thunk),
