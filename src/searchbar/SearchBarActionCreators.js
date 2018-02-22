@@ -1,5 +1,6 @@
 /* eslint-disable */
 import types from "../constants";
+import { suggestCompletion } from "../services/fsqAPI";
 
 export const isGettingCurrentPosition = {
   type: types.IS_GETTING_POSITION
@@ -16,7 +17,6 @@ export const currentPositionFailure = {
   type: types.GET_POSITION_FAILURE
 };
 
-/* action creators */
 export function getPosition() {
   return dispatch => {
     return new Promise((resolve, reject) => {
@@ -34,5 +34,31 @@ export function getPosition() {
         }
       );
     });
+  };
+}
+
+export const isGettingVenues = {
+  type: types.IS_GETTING_VENUES
+};
+
+export const getVenuesSuccess = venues => {
+  return {
+    type: types.GET_VENUES_SUCCESS,
+    venues: venues
+  };
+};
+
+export const getVenuesFailure = {
+  type: types.GET_VENUES_FAILURE
+};
+
+export function getVenues(params) {
+  return dispatch => {
+    dispatch(isGettingVenues);
+    suggestCompletion(params);
+    // .then(() => console.log("successfully got venues"))
+    //   .then( () => dispatch(getVenuesSuccess))
+    //   .catch(ex => dispatch(getVenuesFailure))
+    // );
   };
 }

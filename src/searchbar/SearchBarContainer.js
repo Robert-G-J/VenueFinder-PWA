@@ -2,9 +2,7 @@ import { connect } from "react-redux";
 import { getPosition } from "./SearchBarActionCreators";
 import SearchBar from "./SearchBar";
 
-const mapStateToProps = state => {
-  state;
-};
+const mapStateToProps = state => {};
 
 const mapDispatchToProps = dispatch => ({
   getPosition: () => {
