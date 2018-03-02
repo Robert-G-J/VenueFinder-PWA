@@ -7,24 +7,19 @@ import { shallow, mount } from "enzyme";
 
 describe("The search bar component", () => {
   let component;
-  const mockOther = jest.fn();
   const mockClick = jest.fn();
   const mockChange = jest.fn();
 
   beforeEach(() => {
     component = shallow(
-      <SearchBar handleClick={mockClick} handleQueryChange={mockChange} />
+      <SearchBar getVenues={mockClick} handleQueryChange={mockChange} />
     );
   });
 
   it("renders correctly", () => {
     const tree = renderer
       .create(
-        <SearchBar
-          getPosition={mockClick}
-          handleClick={mockClick}
-          handleQueryChange={mockChange}
-        />
+        <SearchBar getVenues={mockClick} handleQueryChange={mockChange} />
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -45,14 +40,10 @@ describe("The search bar component", () => {
 
     it("Should call a click handler when clicked", () => {
       component = mount(
-        <SearchBar
-          getPosition={mockClick}
-          handleQueryChange={mockChange}
-          handleClick={mockOther}
-        />
+        <SearchBar handleQueryChange={mockChange} getVenues={mockClick} />
       );
       expect(mockClick.mock.calls.length).toEqual(0);
-      component.find(".search-bar__button").simulate("click"); // cannot find the button to click, doesn't increase the calls on the mock? Maybe it isn't activating the mock?
+      component.find(".search-bar__button").simulate("click");
       expect(mockClick.mock.calls.length).toEqual(1);
     });
   });
