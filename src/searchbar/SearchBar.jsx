@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-const SearchBar = ({ getPosition, handleQueryChange, bla }) => (
+const SearchBar = ({ handleQueryChange, getVenues }) => (
   <div className="search-bar">
     <label htmlFor="search-bar" className="search-bar__label" />
     <input
@@ -11,20 +11,15 @@ const SearchBar = ({ getPosition, handleQueryChange, bla }) => (
       placeholder="Search spots..."
       onChange={handleQueryChange}
     />
-    <button
-      className="search-bar__button"
-      onClick={() => {
-        getPosition();
-      }}
-    >
+    <button className="search-bar__button" onClick={getVenues}>
       Search near me
     </button>
   </div>
 );
 
 SearchBar.propTypes = {
-  getPosition: PropTypes.func,
-  handleQueryChange: PropTypes.func.isRequired
+  getVenues: PropTypes.func,
+  handleQueryChange: PropTypes.func
 };
 
 export default SearchBar;

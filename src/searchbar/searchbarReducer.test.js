@@ -1,6 +1,7 @@
 /* global describe, expect, it */
 import types from "../constants";
 import { reducer, initialState } from "./searchbarReducer";
+import { venues } from "../helpers/venues";
 
 describe("Reducers", () => {
   it("Should return the initial state when no action is passed", () => {
@@ -71,6 +72,53 @@ describe("Reducers", () => {
       const expectedState = {
         position: {
           isGetting: false
+        }
+      };
+      expect(reducer(startingState, action)).toEqual(expectedState);
+    });
+  });
+
+  describe("On getting venues from fsq", () => {
+    it("should return the correct state", () => {
+      const action = {
+        type: types.IS_GETTING_VENUES
+      };
+
+      const startingState = {
+        position: {
+          isGetting: false
+        }
+      };
+
+      const expectedState = {
+        ...startingState,
+        fsqResponseData: {
+          isGetting: true
+        }
+      };
+      expect(reducer(startingState, action)).toEqual(expectedState);
+    });
+  });
+
+  describe("Successfully gets venues from foursquare", () => {
+    it("should return the correct state", () => {
+      const action = {
+        type: types.GET_VENUES_SUCCESS,
+        fsqResponseData: {
+          venues
+        }
+      };
+      const startingState = {
+        ...initialState,
+        fsqResponseData: {
+          isGetting: true
+        }
+      };
+      const expectedState = {
+        ...startingState,
+        fsqResponseData: {
+          isGetting: false,
+          venues
         }
       };
       expect(reducer(startingState, action)).toEqual(expectedState);

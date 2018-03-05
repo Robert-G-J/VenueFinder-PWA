@@ -36,6 +36,28 @@ export const reducer = (state = initialState, action) => {
           isGetting: false
         }
       };
+
+    case types.IS_GETTING_VENUES:
+      return {
+        ...state,
+        position: {
+          ...state.position,
+          ...state.coords
+        },
+        fsqResponseData: {
+          isGetting: true
+        }
+      };
+
+    case types.GET_VENUES_SUCCESS:
+      return {
+        ...state,
+        fsqResponseData: {
+          isGetting: false,
+          venues: action.fsqResponseData.venues
+        }
+      };
+
     default:
       return state;
   }
