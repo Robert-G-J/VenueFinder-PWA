@@ -52,6 +52,18 @@ export const getVenuesFailure = {
   type: types.GET_VENUES_FAILURE
 };
 
+const makeDateString = () => {
+  const today = new Date();
+  const dd = today.getDate();
+  const mm = today.getMonth();
+  const yyyy = today.getFullYear();
+  const prependZero = ddOrMm => {
+    if (ddOrMm.length > 2) return new Error("Only two digit values");
+    return dd < 10 ? `0${dd}` : dd;
+  };
+  return `${yyyy}${prependZero(mm)}${prependZero(dd)}`;
+};
+
 // function that returns a function
 // check if already have coords in state, if not then call getPosition
 export function getVenues() {
@@ -59,12 +71,11 @@ export function getVenues() {
     dispatch(getPosition())
       .then(() => {
         dispatch(isGettingVenues);
-        // needs ll, v, query. ll is from store, query
-        //const position = getState().position.coords;
-        //console.log("state", position);
+        const position = getState().SearchBar.position;
+        console.log("Thunk getState:", position);
         suggestCompletion({
-          ll: `${position.coords.lat}, ${position.coords.long}`,
-          v: "20180101",
+          ll: `${position.coords.latitude}, ${position.coords.longitude}`,
+          v: makeDateString(),
           query: "coffee"
         }).then(
           venues => {
