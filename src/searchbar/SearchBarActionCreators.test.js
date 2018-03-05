@@ -1,5 +1,6 @@
 /* global expect, it, describe */
 
+import sinon from "sinon";
 import thunk from "redux-thunk";
 import configureMockStore from "redux-mock-store";
 import * as actions from "./SearchBarActionCreators";
@@ -10,13 +11,13 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe("SearchBar action creators", () => {
+  const store = mockStore();
+
+  beforeEach(() => {
+    store.clearActions();
+  });
+
   describe("to get current position", () => {
-    const store = mockStore();
-
-    beforeEach(() => {
-      store.clearActions();
-    });
-
     it("creates action-creator to indicate is fetching current position", () => {
       const mockCoords = { lat: 50, lon: 0 };
       const mockCurrentPosition = jest.fn(cb => cb(mockCoords));
@@ -93,12 +94,8 @@ describe("SearchBar action creators", () => {
       expect(actions.getVenuesFailure).toEqual(expectedAction);
     });
 
-    it("has an async action-creator for successfully getting Venues", () => {
-      const expectedActions = [
-        actions.isGettingVenues,
-        actions.getVenuesSuccess(mockVenues)
-      ];
-      const mockSuggestCompletion = jest.fn(cb => cb(mockVenues));
+    xit("has an async action-creator for successfully getting Venues", () => {
+      // not ready yet....
     });
   });
 });

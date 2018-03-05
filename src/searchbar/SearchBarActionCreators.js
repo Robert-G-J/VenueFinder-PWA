@@ -28,9 +28,9 @@ export function getPosition() {
           dispatch(currentPositionSuccess(position));
           resolve();
         },
-        () => {
+        error => {
           dispatch(currentPositionFailure);
-          reject();
+          reject(error);
         }
       );
     });
@@ -52,13 +52,32 @@ export const getVenuesFailure = {
   type: types.GET_VENUES_FAILURE
 };
 
-export function getVenues(params) {
-  return dispatch => {
-    dispatch(isGettingVenues);
-    suggestCompletion(params);
-    // .then(() => console.log("successfully got venues"))
-    //   .then( () => dispatch(getVenuesSuccess))
-    //   .catch(ex => dispatch(getVenuesFailure))
-    // );
+// function that returns a function
+// check if already have coords in state, if not then call getPosition
+export function getVenues() {
+  return (dispatch, getState) => {
+    dispatch(getPosition())
+      .then(() => {
+        dispatch(isGettingVenues);
+        // needs ll, v, query. ll is from store, query
+        //const position = getState().position.coords;
+        //console.log("state", position);
+        suggestCompletion({
+          ll: `${position.coords.lat}, ${position.coords.long}`,
+          v: "20180101",
+          query: "coffee"
+        }).then(
+          venues => {
+            console.log("successfully got venues", venues);
+            dispatch(getVenuesSuccess(venues));
+          },
+          () => {
+            dispatch(getVenuesFailure);
+          }
+        );
+      })
+      .catch(error => {
+        console.error("Cannot retrieve your position", error);
+      });
   };
 }
