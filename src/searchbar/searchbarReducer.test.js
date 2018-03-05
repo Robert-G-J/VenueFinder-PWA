@@ -104,9 +104,7 @@ describe("Reducers", () => {
     it("should return the correct state", () => {
       const action = {
         type: types.GET_VENUES_SUCCESS,
-        fsqResponseData: {
-          venues
-        }
+        venues
       };
       const startingState = {
         ...initialState,

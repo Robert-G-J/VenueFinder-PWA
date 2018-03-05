@@ -54,7 +54,7 @@ export const reducer = (state = initialState, action) => {
         ...state,
         fsqResponseData: {
           isGetting: false,
-          venues: action.fsqResponseData.venues
+          venues: action.venues
         }
       };
 
