@@ -98,4 +98,30 @@ describe("SearchBar action creators", () => {
       // not ready yet....
     });
   });
+  describe("Generates a date string to query foursquares's endpoint", () => {
+    let sandbox;
+
+    beforeEach(() => {
+      sandbox = sinon.sandbox.create();
+    });
+    afterEach(() => {
+      sandbox.restore();
+    });
+    it("when the date supplied is single digit", () => {
+      const dateStub = sandbox.stub(Date.prototype, "getDate").returns("2");
+      const monthStub = sandbox.stub(Date.prototype, "getMonth").returns("5");
+      const yearStub = sandbox
+        .stub(Date.prototype, "getFullYear")
+        .returns("2017");
+      expect(actions.makeDateString()).toEqual("20170502");
+    });
+    it("when date supplied is double digit", () => {
+      const dateStub = sandbox.stub(Date.prototype, "getDate").returns("12");
+      const monthStub = sandbox.stub(Date.prototype, "getMonth").returns("11");
+      const yearStub = sandbox
+        .stub(Date.prototype, "getFullYear")
+        .returns("2018");
+      expect(actions.makeDateString()).toEqual("20181112");
+    });
+  });
 });

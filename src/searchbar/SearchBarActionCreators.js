@@ -52,19 +52,18 @@ export const getVenuesFailure = {
   type: types.GET_VENUES_FAILURE
 };
 
-const makeDateString = () => {
+export const makeDateString = () => {
   const today = new Date();
   const dd = today.getDate();
   const mm = today.getMonth();
   const yyyy = today.getFullYear();
-  const prependZero = ddOrMm => {
-    if (ddOrMm.length > 2) return new Error("Only two digit values");
-    return dd < 10 ? `0${dd}` : dd;
+  const prependZero = dateString => {
+    if (dateString.length > 2) return new Error("Only two digit values");
+    return dateString < 10 ? `0${dateString}` : dateString;
   };
   return `${yyyy}${prependZero(mm)}${prependZero(dd)}`;
 };
 
-// function that returns a function
 // check if already have coords in state, if not then call getPosition
 export function getVenues() {
   return (dispatch, getState) => {
