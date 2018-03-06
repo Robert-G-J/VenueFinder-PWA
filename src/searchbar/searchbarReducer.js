@@ -58,6 +58,14 @@ export const reducer = (state = initialState, action) => {
         }
       };
 
+    case types.UPDATE_SEARCHBAR_QUERY:
+      return {
+        ...state,
+        fsqRequestData: {
+          query: action.query
+        }
+      };
+
     default:
       return state;
   }

@@ -122,4 +122,24 @@ describe("Reducers", () => {
       expect(reducer(startingState, action)).toEqual(expectedState);
     });
   });
+
+  describe("User enters a search term", () => {
+    it("should return the correct state", () => {
+      const query = "cof";
+      const action = {
+        type: types.UPDATE_SEARCHBAR_QUERY,
+        query
+      };
+      const startingState = {
+        ...initialState
+      };
+      const expectedState = {
+        ...startingState,
+        fsqRequestData: {
+          query
+        }
+      };
+      expect(reducer(startingState, action)).toEqual(expectedState);
+    });
+  });
 });
