@@ -98,6 +98,7 @@ describe("SearchBar action creators", () => {
       // not ready yet....
     });
   });
+
   describe("Generates a date string to query foursquares's endpoint", () => {
     let sandbox;
 
@@ -122,6 +123,15 @@ describe("SearchBar action creators", () => {
         .stub(Date.prototype, "getFullYear")
         .returns("2018");
       expect(actions.makeDateString()).toEqual("20181112");
+    });
+  });
+
+  describe("Takes a user input", () => {
+    it("and generates an action to update the state", () => {
+      const expectedAction = {
+        type: types.UPDATE_SEARCHBAR_QUERY
+      };
+      expect(actions.updateSearchbarQuery).toEqual(expectedAction);
     });
   });
 });

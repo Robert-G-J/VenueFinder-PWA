@@ -91,3 +91,7 @@ export function getVenues() {
       });
   };
 }
+
+export const updateSearchbarQuery = {
+  type: types.UPDATE_SEARCHBAR_QUERY
+};
