@@ -128,10 +128,12 @@ describe("SearchBar action creators", () => {
 
   describe("Takes a user input", () => {
     it("and generates an action to update the state", () => {
+      const searchTerm = "Cof";
       const expectedAction = {
-        type: types.UPDATE_SEARCHBAR_QUERY
+        type: types.UPDATE_SEARCHBAR_QUERY,
+        query: searchTerm
       };
-      expect(actions.updateSearchbarQuery).toEqual(expectedAction);
+      expect(actions.updateSearchbarQuery(searchTerm)).toEqual(expectedAction);
     });
   });
 });

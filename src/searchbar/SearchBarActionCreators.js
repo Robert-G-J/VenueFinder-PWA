@@ -92,6 +92,9 @@ export function getVenues() {
   };
 }
 
-export const updateSearchbarQuery = {
-  type: types.UPDATE_SEARCHBAR_QUERY
+export const updateSearchbarQuery = searchTerm => {
+  return {
+    type: types.UPDATE_SEARCHBAR_QUERY,
+    query: searchTerm
+  };
 };
