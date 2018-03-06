@@ -7,9 +7,12 @@ exports[`The search bar component renders correctly 1`] = `
   <label
     className="search-bar__label"
     htmlFor="search-bar"
-  />
+  >
+    Search for spots
+  </label>
   <input
     className="search-bar__input"
+    id="search-bar"
     onChange={[Function]}
     placeholder="Search spots..."
     type="text"

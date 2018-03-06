@@ -71,11 +71,13 @@ export function getVenues() {
       .then(() => {
         dispatch(isGettingVenues);
         const position = getState().SearchBar.position;
+        const query = getState().SearchBar.fsqRequestData.query;
         console.log("Thunk getState:", position);
+
         suggestCompletion({
           ll: `${position.coords.latitude}, ${position.coords.longitude}`,
           v: makeDateString(),
-          query: "coffee"
+          query: `${query}`
         }).then(
           venues => {
             console.log("successfully got venues", venues);

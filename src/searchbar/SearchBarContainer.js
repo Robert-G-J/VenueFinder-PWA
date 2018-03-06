@@ -1,8 +1,12 @@
 import { connect } from "react-redux";
-import { getPosition, getVenues } from "./SearchBarActionCreators";
+import {
+  getPosition,
+  getVenues,
+  updateSearchbarQuery
+} from "./SearchBarActionCreators";
 import SearchBar from "./SearchBar";
 
-const mapStateToProps = state => {};
+const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
   getPosition: () => {
@@ -11,6 +15,10 @@ const mapDispatchToProps = dispatch => ({
 
   getVenues: params => {
     dispatch(getVenues(params));
+  },
+
+  updateSearchbarQuery: params => {
+    dispatch(updateSearchbarQuery(params));
   }
 });
 

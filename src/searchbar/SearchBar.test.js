@@ -12,14 +12,14 @@ describe("The search bar component", () => {
 
   beforeEach(() => {
     component = shallow(
-      <SearchBar getVenues={mockClick} handleQueryChange={mockChange} />
+      <SearchBar getVenues={mockClick} updateSearchbarQuery={mockChange} />
     );
   });
 
   it("renders correctly", () => {
     const tree = renderer
       .create(
-        <SearchBar getVenues={mockClick} handleQueryChange={mockChange} />
+        <SearchBar getVenues={mockClick} updateSearchbarQuery={mockChange} />
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -40,7 +40,7 @@ describe("The search bar component", () => {
 
     it("Should call a click handler when clicked", () => {
       component = mount(
-        <SearchBar handleQueryChange={mockChange} getVenues={mockClick} />
+        <SearchBar updateSearchbarQuery={mockChange} getVenues={mockClick} />
       );
       expect(mockClick.mock.calls.length).toEqual(0);
       component.find(".search-bar__button").simulate("click");
