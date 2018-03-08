@@ -6,6 +6,7 @@ import configureMockStore from "redux-mock-store";
 import * as actions from "./SearchBarActionCreators";
 import types from "../constants";
 import { suggestCompletion } from "../services/fsqAPI";
+import { mockResponse } from "../helpers/venues";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -51,26 +52,26 @@ describe("SearchBar action creators", () => {
     });
   });
   describe("to get all nearby venues", () => {
-    const mockVenues = {
-      minivenues: [
-        {
-          id: 1,
-          name: "Froufrou Coffee",
-          location: {
-            address: "The Frang, Broadmead",
-            city: "Bristol"
-          }
-        },
-        {
-          id: 2,
-          name: "Conga Rhubarb and Friends",
-          location: {
-            address: "Xmas Pudding Gang HQ",
-            city: "Bristol"
-          }
+    const mappedVenues = [
+      {
+        id: 1,
+        name: "Froufrou Coffee",
+        location: {
+          address: "The Frang, Broadmead",
+          city: "Bristol",
+          distance: 500
         }
-      ]
-    };
+      },
+      {
+        id: 2,
+        name: "Conga Rhubarb and Friends",
+        location: {
+          address: "Xmas Pudding Gang HQ",
+          city: "Bristol",
+          distance: 300
+        }
+      }
+    ];
 
     it("creates an action to indicate is getting venues", () => {
       const expectedAction = {
@@ -82,9 +83,9 @@ describe("SearchBar action creators", () => {
     it("creates an action when successfully gets venues", () => {
       const expectedAction = {
         type: types.GET_VENUES_SUCCESS,
-        venues: mockVenues
+        venues: mappedVenues
       };
-      expect(actions.getVenuesSuccess(mockVenues)).toEqual(expectedAction);
+      expect(actions.getVenuesSuccess(mockResponse)).toEqual(expectedAction);
     });
 
     it("creates an action when fails to get venues", () => {

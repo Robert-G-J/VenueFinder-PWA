@@ -24,7 +24,6 @@ export function getPosition() {
       navigator.geolocation.getCurrentPosition(
         // success
         position => {
-          console.log("successfully got position", position);
           dispatch(currentPositionSuccess(position));
           resolve();
         },
@@ -41,7 +40,19 @@ export const isGettingVenues = {
   type: types.IS_GETTING_VENUES
 };
 
-export const getVenuesSuccess = venues => {
+export const getVenuesSuccess = responseObject => {
+  const venues = responseObject.response.minivenues.map(venue => {
+    return {
+      id: venue.id,
+      name: venue.name,
+      location: {
+        address: venue.location.address,
+        city: venue.location.city,
+        distance: venue.location.distance
+      }
+    };
+  });
+
   return {
     type: types.GET_VENUES_SUCCESS,
     venues: venues
@@ -80,7 +91,6 @@ export function getVenues() {
           query: `${query}`
         }).then(
           venues => {
-            console.log("successfully got venues", venues);
             dispatch(getVenuesSuccess(venues));
           },
           () => {

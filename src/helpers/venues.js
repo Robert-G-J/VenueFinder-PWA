@@ -1,3 +1,32 @@
+export const mockResponse = {
+  meta: {
+    code: 200,
+    requestId: "5a3adfe81ed21913b428c83a"
+  },
+  response: {
+    minivenues: [
+      {
+        id: 1,
+        name: "Froufrou Coffee",
+        location: {
+          address: "The Frang, Broadmead",
+          city: "Bristol",
+          distance: 500
+        }
+      },
+      {
+        id: 2,
+        name: "Conga Rhubarb and Friends",
+        location: {
+          address: "Xmas Pudding Gang HQ",
+          city: "Bristol",
+          distance: 300
+        }
+      }
+    ]
+  }
+};
+
 export const venues = {
   meta: {
     code: 200,
