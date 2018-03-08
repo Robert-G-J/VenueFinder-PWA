@@ -14,7 +14,12 @@ describe("Reducers", () => {
         type: types.IS_GETTING_POSITION
       };
       const expectedState = {
+        ...initialState,
         position: {
+          ...initialState.position,
+          coords: {
+            ...initialState.position.coords
+          },
           isGetting: true
         }
       };
@@ -40,11 +45,13 @@ describe("Reducers", () => {
       const startingState = {
         ...initialState,
         position: {
-          isGetting: true
+          isGetting: true,
+          ...initialState.position
         }
       };
 
       const expectedState = {
+        ...startingState,
         position: {
           isGetting: false,
           coords: {

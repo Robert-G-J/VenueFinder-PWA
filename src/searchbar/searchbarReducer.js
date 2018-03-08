@@ -2,7 +2,16 @@ import types from "../constants";
 
 export const initialState = {
   position: {
-    isGetting: false
+    isGetting: false,
+    coords: {
+      latitude: null,
+      longitude: null,
+      accuracy: null
+    }
+  },
+  fsqResponseData: {
+    isGetting: false,
+    venues: []
   }
 };
 // I'm not sure whether I should be hardcoding the key/values in reducers. I feel that they should be in the action that's dispatched
@@ -12,7 +21,8 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         position: {
-          isGetting: true
+          isGetting: true,
+          coords: { ...state.position.coords }
         }
       };
 
