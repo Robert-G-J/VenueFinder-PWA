@@ -6,7 +6,7 @@ import {
 } from "./SearchBarActionCreators";
 import SearchBar from "./SearchBar";
 
-const mapStateToProps = state => state;
+const mapStateToProps = state => state.SearchBar;
 
 const mapDispatchToProps = dispatch => ({
   getPosition: () => {

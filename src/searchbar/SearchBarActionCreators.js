@@ -74,7 +74,7 @@ export const makeDateString = () => {
   };
   return `${yyyy}${prependZero(mm)}${prependZero(dd)}`;
 };
-
+// TODO Refactor -> await async
 // check if already have coords in state, if not then call getPosition
 export function getVenues() {
   return (dispatch, getState) => {
@@ -83,7 +83,6 @@ export function getVenues() {
         dispatch(isGettingVenues);
         const position = getState().SearchBar.position;
         const query = getState().SearchBar.fsqRequestData.query;
-        console.log("Thunk getState:", position);
 
         suggestCompletion({
           ll: `${position.coords.latitude}, ${position.coords.longitude}`,
