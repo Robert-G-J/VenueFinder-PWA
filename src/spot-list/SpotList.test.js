@@ -6,7 +6,7 @@ import renderer from "react-test-renderer";
 describe("The SpotList component", () => {
   const props = {
     id: 1,
-    items: []
+    venues: []
   };
 
   it("renders correctly", () => {
