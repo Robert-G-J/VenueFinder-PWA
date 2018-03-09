@@ -71,14 +71,14 @@ describe("Reducers", () => {
       };
 
       const startingState = {
-        position: {
-          isGetting: true
-        }
+        ...initialState
       };
 
       const expectedState = {
+        ...startingState,
         position: {
-          isGetting: false
+          isGetting: false,
+          ...startingState.position
         }
       };
       expect(reducer(startingState, action)).toEqual(expectedState);
@@ -92,14 +92,17 @@ describe("Reducers", () => {
       };
 
       const startingState = {
+        ...initialState,
         position: {
-          isGetting: false
+          isGetting: false,
+          ...initialState.position
         }
       };
 
       const expectedState = {
         ...startingState,
         fsqResponseData: {
+          ...startingState.fsqResponseData,
           isGetting: true
         }
       };

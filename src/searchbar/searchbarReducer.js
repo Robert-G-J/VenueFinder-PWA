@@ -12,6 +12,9 @@ export const initialState = {
   fsqResponseData: {
     isGetting: false,
     venues: []
+  },
+  fsqRequestData: {
+    query: ""
   }
 };
 // I'm not sure whether I should be hardcoding the key/values in reducers. I feel that they should be in the action that's dispatched
@@ -43,7 +46,8 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         position: {
-          isGetting: false
+          isGetting: false,
+          ...state.position
         }
       };
 
@@ -55,7 +59,8 @@ export const reducer = (state = initialState, action) => {
           ...state.coords
         },
         fsqResponseData: {
-          isGetting: true
+          isGetting: true,
+          venues: [...state.fsqResponseData.venues]
         }
       };
 
