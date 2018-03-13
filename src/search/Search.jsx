@@ -5,7 +5,7 @@ import "./index.css";
 
 const Search = () => (
   <div className="search__body">
-    <h1>Search Component</h1>
+    <h1>Search</h1>
     <SearchBarContainer />
     <SpotListContainer />
   </div>
