@@ -1,14 +1,24 @@
 body {
-  display: flex;
-  background-color: #2ed0c5;
-  justify-content: center;
-  flex-direction: column;
 }
 
+/* Entire Search Component */
+/* *************************************/
 .search__body {
   font-family: Quicksand, Verdana, Geneva, Tahoma, sans-serif;
   border: dashed 1px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  
 }
+
+.search__header {
+  height: 7rem;
+  border: #5059ff 2px dotted;
+  background-color: #2ed0c5;
+}
+
 .search__body h1 {
   font-size: 2rem;
   font-family: Quicksand;
@@ -25,19 +35,18 @@ body {
   font-size: 0.8rem;
   color: #606060;
 }
+
+
 .search__body .spot-table {
-  /*   position: relative; */
   border: brown 1px dashed;
   align-items: center;
 
 }
 .search__body .spot-table .spot-table__list {
-  /*   position: absolute; */
   top: 0;
   left: 0;
   list-style: none;
   padding: 0;
-  max-height: 300px;
   overflow: auto;
   background-color: #f8f8f8;
   box-shadow: 0 1px 20px 0 rgba(231, 13, 13, 0.2);
@@ -48,19 +57,33 @@ body {
   cursor: pointer;
 }
 .search__body .spot-table .spot-table__list .spot-table__item:hover {
-  background-color: #e20a0a;
+  background-color: darkgoldenrod;
   color: whitesmoke;
 }
 
 .spot-table__list {
-  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
+.spot-table__item {
+  background-color: cadetblue;
+  padding: 1px;
+  margin: 1px;
+}
+
+.spot-table__item:nth-of-type(2) {
+  flex-grow: 4;
+}
+
+
+/* Search Bar- input, button and label */
+/* *************************************/
 .search-bar {
   background-color: inherit;
   border: dashed 1px grey;
   padding: 5px;
-/*   width: 100%; */
 }
 
 .search-bar__label {
