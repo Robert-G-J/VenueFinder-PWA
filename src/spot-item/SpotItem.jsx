@@ -3,12 +3,13 @@ import PropTypes from "prop-types";
 
 const SpotItem = props => (
   <li key={`item-${props.id}`} className="spot-table__item">
-    <button>{props.name}</button>
+    <button className="spot-table__item-button">{props.name}</button>
   </li>
 );
 
 SpotItem.propTypes = {
-  id: PropTypes.string
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
 };
 
 export default SpotItem;
