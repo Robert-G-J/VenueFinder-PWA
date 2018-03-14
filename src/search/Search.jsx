@@ -5,8 +5,10 @@ import "./index.css";
 
 const Search = () => (
   <div className="search__body">
-    <h1>Search</h1>
-    <SearchBarContainer />
+    <header className="search__header">
+      <h1>Search</h1>
+      <SearchBarContainer />
+    </header>
     <SpotListContainer />
   </div>
 );
