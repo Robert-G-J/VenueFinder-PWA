@@ -18,6 +18,11 @@ export const currentPositionFailure = {
 };
 
 export function getPosition() {
+  const options = {
+    enableHighAccuracy: false,
+    timeout: 250,
+    maximumAge: 100000
+  };
   return dispatch => {
     return new Promise((resolve, reject) => {
       dispatch(isGettingCurrentPosition);
