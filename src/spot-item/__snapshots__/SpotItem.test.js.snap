@@ -5,9 +5,15 @@ exports[`The SpotItem component renders correctly 1`] = `
   className="spot-table__item"
 >
   <button
-    className="spot-table__item-button"
+    className="spot-table__item-name"
   >
     test
+  </button>
+  <button
+    className="spot-table__item-distance"
+  >
+    1.23
+    km away
   </button>
 </li>
 `;

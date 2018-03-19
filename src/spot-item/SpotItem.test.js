@@ -6,7 +6,9 @@ import renderer from "react-test-renderer";
 describe("The SpotItem component", () => {
   const props = {
     id: "d29348f",
-    name: "test"
+    name: "test",
+    address: "address",
+    distance: 1234
   };
 
   it("renders correctly", () => {
