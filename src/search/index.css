@@ -37,14 +37,11 @@ html {
   letter-spacing: normal;
   text-align: center;
   color: #2f2f30;
-  /*   border: dashed 1px darkgrey; */
 }
+
 .search__container p {
   font-size: 0.8rem;
   color: #606060;
-}
-
-.search__container .spot-table {
 }
 
 .search__container section {
@@ -53,15 +50,16 @@ html {
   flex-basis: 80vh;
   flex-grow: 1;
 }
+
 .search__container .spot-table .spot-table__list {
   /*   top: 0;
   left: 0; */
   list-style: none;
   padding: 0;
-
   background-color: #f8f8f8;
   box-shadow: 0 1px 20px 0 rgba(231, 13, 13, 0.2);
 }
+
 .search__container .spot-table .spot-table__list .spot-table__item {
   background-color: #f8f8f8;
   padding: 0.2rem;
@@ -70,11 +68,10 @@ html {
   display: flex;
   justify-content: space-between;
 }
+
 .search__container .spot-table .spot-table__list .spot-table__item:hover {
   background-color: papayawhip;
   color: whitesmoke;
-
-
 }
 
 .search__container
@@ -92,9 +89,8 @@ html {
   .spot-table__list
   .spot-table__item
   .spot-table__item-distance:hover, .spot-table__item-name:hover {
-    background-color: lightgoldenrodyellow;
-   
-  }
+    background-color: lightgoldenrodyellow;   
+}
 
 
 
