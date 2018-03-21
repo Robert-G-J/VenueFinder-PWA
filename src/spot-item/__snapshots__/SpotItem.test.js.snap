@@ -3,6 +3,7 @@
 exports[`The SpotItem component renders correctly 1`] = `
 <li
   className="spot-table__item"
+  data-selector="spot-table__item"
 >
   <button
     className="spot-table__item-name"

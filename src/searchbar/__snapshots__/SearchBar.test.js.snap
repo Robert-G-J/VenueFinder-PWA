@@ -12,13 +12,14 @@ exports[`The search bar component renders correctly 1`] = `
   </label>
   <input
     className="search-bar__input"
-    id="search-bar"
+    data-selector="search-bar__input"
     onChange={[Function]}
     placeholder="Search spots..."
     type="text"
   />
   <button
     className="search-bar__button"
+    data-selector="search-bar__button"
     onClick={[Function]}
   >
     Search near me

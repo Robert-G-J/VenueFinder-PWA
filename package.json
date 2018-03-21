@@ -44,9 +44,6 @@
     },
     "coverageReporters": [
       "text"
-    ],
-    "snapshotSerializers": [
-      "my-serializer-module"
     ]
   },
   "devDependencies": {
