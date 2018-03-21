@@ -25,13 +25,33 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "selenium-setup": "selenium-standalone install",
-    "selenium-start": "selenium-standalone start",
-    "e2e-tests": "wdio wdio.conf.js",
-    "e2e-tests-watch": "wdio wdio.conf.js --watch"
+    "e2e-tests": "npx cypress open",
+    "e2e-tests:ci": "npx cypress run"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/path/to/dir/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "coverageReporters": [
+      "text"
+    ],
+    "snapshotSerializers": [
+      "my-serializer-module"
+    ]
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "cypress": "^2.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.17.0",

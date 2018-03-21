@@ -11,13 +11,14 @@ const SearchBar = ({ updateSearchbarQuery, getVenues }) => {
         Search for spots
       </label>
       <input
-        type="text"
-        id="search-bar"
-        className="search-bar__input"
-        placeholder="Search spots..."
-        onChange={event => debounceUpdateSearchbarQuery(event.target.value)}
+          type="text"
+          data-selector="search-bar__input"
+          className="search-bar__input"
+          placeholder="Search spots..."
+          onChange={event => debounceUpdateSearchbarQuery(event.target.value)}
       />
-      <button className="search-bar__button" onClick={getVenues}>
+        <button className="search-bar__button"
+                data-selector="search-bar__button" onClick={getVenues}>
         Search near me
       </button>
     </div>
