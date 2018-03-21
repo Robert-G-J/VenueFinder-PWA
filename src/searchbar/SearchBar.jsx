@@ -9,9 +9,6 @@ const SearchBar = ({ updateSearchbarQuery, getVenues }) => {
 
   return (
     <div className="search-bar">
-      <label htmlFor="search-bar" className="search-bar__label">
-        Search for spots
-      </label>
       <TextField
         id="search"
         label="Search field"

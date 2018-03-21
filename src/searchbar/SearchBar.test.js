@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 import renderer from "react-test-renderer";
 import { shallow, mount } from "enzyme";
 
-describe("The search bar component", () => {
+describe("<SearcBar getValues updateSearchbarQuery />", () => {
   let component;
   const mockClick = jest.fn();
   const mockChange = jest.fn();
@@ -25,6 +25,13 @@ describe("The search bar component", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  describe("<TextField />", () => {
+
+    it('exists', () => {
+      component.find("<TextField>")
+    })
+
+  })
   it("renders without crashing", () => {
     expect(component.exists()).toEqual(true);
   });
@@ -33,7 +40,7 @@ describe("The search bar component", () => {
     expect(component.find(".search-bar__input").length).toEqual(1);
   });
 
-  describe("Current location button", () => {
+  describe("<Button />", () => {
     it("Should exist", () => {
       expect(component.find(".search-bar__button").length).toEqual(1);
     });
@@ -42,9 +49,8 @@ describe("The search bar component", () => {
       component = mount(
         <SearchBar updateSearchbarQuery={mockChange} getVenues={mockClick} />
       );
-      expect(mockClick.mock.calls.length).toEqual(0);
-      component.find(".search-bar__button").simulate("click");
-      expect(mockClick.mock.calls.length).toEqual(1);
+      component.find("[data-selector='search-bar__button']").first().simulate("click");
+      expect(mockClick).toHaveBeenCalled()
     });
   });
 });
