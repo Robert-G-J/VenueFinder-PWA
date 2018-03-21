@@ -4,6 +4,8 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import renderer from "react-test-renderer";
 import { shallow, mount } from "enzyme";
+import TextField from "material-ui/TextField";
+import Button from "material-ui/Button";
 
 describe("<SearcBar getValues updateSearchbarQuery />", () => {
   let component;
@@ -26,12 +28,20 @@ describe("<SearcBar getValues updateSearchbarQuery />", () => {
   });
 
   describe("<TextField />", () => {
-
     it('exists', () => {
-      component.find("<TextField>")
+      expect(component.find(TextField).length).toEqual(1)
+    })
+
+    xit("Should call a updateSearchbarQuery on Change", () => {
+      component = mount(
+        <SearchBar getVenues={mockClick} updateSearchbarQuery={mockChange} />
+      )
+      component.find("[data-selector='search-bar__input'] input").simulate("change", { target: { value: 'xyz' } });
+      expect(mockChange).toHaveBeenCalled()
     })
 
   })
+
   it("renders without crashing", () => {
     expect(component.exists()).toEqual(true);
   });
