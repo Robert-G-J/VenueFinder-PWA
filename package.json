@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "lodash": "^4.17.5",
+    "material-ui": "^1.0.0-beta.38",
     "node-sass-chokidar": "0.0.3",
     "normalize.css": "^8.0.0",
     "npm": "^5.7.1",
@@ -62,6 +63,6 @@
     "redux-devtools": "^3.4.1",
     "redux-mock-store": "^1.5.1",
     "selenium-standalone": "^6.12.0",
-    "sinon": "^4.3.0",
+    "sinon": "^4.3.0"
   }
 }

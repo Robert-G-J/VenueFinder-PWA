@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
+import TextField from "material-ui/TextField";
+import Button from "material-ui/Button";
 
 const SearchBar = ({ updateSearchbarQuery, getVenues }) => {
   const debounceUpdateSearchbarQuery = _.debounce(updateSearchbarQuery, 250);
@@ -10,17 +12,24 @@ const SearchBar = ({ updateSearchbarQuery, getVenues }) => {
       <label htmlFor="search-bar" className="search-bar__label">
         Search for spots
       </label>
-      <input
-          type="text"
-          data-selector="search-bar__input"
-          className="search-bar__input"
-          placeholder="Search spots..."
-          onChange={event => debounceUpdateSearchbarQuery(event.target.value)}
+      <TextField
+        id="search"
+        label="Search field"
+        data-selector="search-bar__input"
+        type="search"
+        className="search-bar__input"
+        placeholder="Search spots..."
+        margin="normal"
+        onChange={event => debounceUpdateSearchbarQuery(event.target.value)}
       />
-        <button className="search-bar__button"
-                data-selector="search-bar__button" onClick={getVenues}>
+      <Button
+        data-selector="search-bar__button"
+        className="search-bar__button"
+        variant="raised"
+        onClick={getVenues}
+      >
         Search near me
-      </button>
+      </Button>
     </div>
   );
 };
