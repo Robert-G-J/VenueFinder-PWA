@@ -27,7 +27,6 @@ export function getPosition() {
     return new Promise((resolve, reject) => {
       dispatch(isGettingCurrentPosition);
       navigator.geolocation.getCurrentPosition(
-        // success
         position => {
           dispatch(currentPositionSuccess(position));
           resolve();
@@ -80,50 +79,23 @@ export const makeDateString = () => {
   return `${yyyy}${prependZero(mm)}${prependZero(dd)}`;
 };
 
-export function getVenues() {
-  return (dispatch, getState) => {
-    dispatch(getPosition())
-      .then(() => {
-        dispatch(isGettingVenues);
-        const position = getState().SearchBar.position;
-        const query = getState().SearchBar.fsqRequestData.query;
-
-        suggestCompletion({
-          ll: `${position.coords.latitude}, ${position.coords.longitude}`,
-          v: makeDateString(),
-          query: `${query}`
-        }).then(
-          venues => {
-            dispatch(getVenuesSuccess(venues));
-          },
-          () => {
-            dispatch(getVenuesFailure);
-          }
-        );
-      })
-      .catch(error => {
-        console.error("Cannot retrieve your position", error);
-      });
-  };
-}
-
-// export const getVenues = async () => {
-//   const position = await dispatch(getPosition());
-//   try {
-//     dispatch(isGettingVenues);
-//     const position = getState().SearchBar.position;
-//     const query = getState().SearchBar.fsqRequestData.query;
-//     const venues = suggestCompletion({
-//       ll: `${position.coords.latitude}, ${position.coords.longitude}`,
-//       v: makeDateString(),
-//       query: `${query}`
-//     });
-//     dispatch(getVenuesSuccess(venues));
-//   } catch (error) {
-//     dispatch(getVenuesFailure);
-//     console.error("Cannot retrieve venues");
-//   }
-// };
+export const getVenues = () => async (dispatch, getState) => {
+  const position = await dispatch(getPosition());
+  try {
+    dispatch(isGettingVenues);
+    const position = getState().SearchBar.position;
+    const query = getState().SearchBar.fsqRequestData.query;
+    const venues = await suggestCompletion({
+      ll: `${position.coords.latitude}, ${position.coords.longitude}`,
+      v: makeDateString(),
+      query: `${query}`
+    });
+    dispatch(getVenuesSuccess(venues));
+  } catch (error) {
+    dispatch(getVenuesFailure);
+    console.error("Cannot retrieve venues");
+  }
+};
 
 export const updateSearchbarQuery = searchTerm => {
   return {
