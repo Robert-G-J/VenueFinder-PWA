@@ -20,7 +20,7 @@ describe("PWA - Search", () => {
 
     cy.get("[data-selector=search-bar__button]").click();
 
-    // TODO: HAndle allow geolocation
+    // TODO: Handle allow geolocation
 
     cy
       .get("[data-selector=spot-table__item]", { timeout: 10000 })

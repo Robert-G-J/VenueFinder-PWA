@@ -1,6 +1,6 @@
 import React from "react";
-import SpotItem from "../spot-item/SpotItem";
 import PropTypes from "prop-types";
+import SpotItem from "../spot-item/SpotItem";
 
 const SpotList = ({ venues }) => (
   <div className="spot-table">

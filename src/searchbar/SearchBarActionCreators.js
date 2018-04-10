@@ -41,6 +41,18 @@ export function getPosition() {
   };
 }
 
+// export const getPosition2 = async () => {
+//   await navigator.geolocation.getCurrentPosition(
+//     position => {
+//       dispatch(currentPositionSuccess(position));
+//     },
+//     error =>  {
+//       dispatch(currentPositionFailure);
+//     }
+//   );
+// }
+
+
 export const isGettingVenues = {
   type: types.IS_GETTING_VENUES
 };
@@ -107,6 +119,24 @@ export function getVenues() {
       });
   };
 }
+
+// export const getVenues2 = async () => {
+//   const position = await dispatch(getPosition());
+//   try {
+//     dispatch(isGettingVenues);
+//     const position = getState().SearchBar.position;
+//     const query = getState().SearchBar.fsqRequestData.query;
+//     const venues = suggestCompletion({
+//       ll: `${position.coords.latitude}, ${position.coords.longitude}`,
+//       v: makeDateString(),
+//       query: `${query}`
+//     })
+//   }
+//   .catch {
+//     dispatch(getVenuesFailure);
+//     console.error('Cannot retrieve venues');
+//   }
+// }
 
 export const updateSearchbarQuery = searchTerm => {
   return {
