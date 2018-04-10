@@ -5,5 +5,6 @@
     "prettier/react",
     "plugin:jsx-a11y/recommended"
   ],
+  "env": { "browser": true },
   "plugins": ["jsx-a11y"]
 }
