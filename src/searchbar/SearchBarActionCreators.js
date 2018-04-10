@@ -41,18 +41,6 @@ export function getPosition() {
   };
 }
 
-// export const getPosition2 = async () => {
-//   await navigator.geolocation.getCurrentPosition(
-//     position => {
-//       dispatch(currentPositionSuccess(position));
-//     },
-//     error =>  {
-//       dispatch(currentPositionFailure);
-//     }
-//   );
-// }
-
-
 export const isGettingVenues = {
   type: types.IS_GETTING_VENUES
 };
@@ -91,8 +79,7 @@ export const makeDateString = () => {
   };
   return `${yyyy}${prependZero(mm)}${prependZero(dd)}`;
 };
-// TODO Refactor -> await async
-// check if already have coords in state, if not then call getPosition
+
 export function getVenues() {
   return (dispatch, getState) => {
     dispatch(getPosition())
@@ -120,7 +107,7 @@ export function getVenues() {
   };
 }
 
-// export const getVenues2 = async () => {
+// export const getVenues = async () => {
 //   const position = await dispatch(getPosition());
 //   try {
 //     dispatch(isGettingVenues);
@@ -130,13 +117,13 @@ export function getVenues() {
 //       ll: `${position.coords.latitude}, ${position.coords.longitude}`,
 //       v: makeDateString(),
 //       query: `${query}`
-//     })
-//   }
-//   .catch {
+//     });
+//     dispatch(getVenuesSuccess(venues));
+//   } catch (error) {
 //     dispatch(getVenuesFailure);
-//     console.error('Cannot retrieve venues');
+//     console.error("Cannot retrieve venues");
 //   }
-// }
+// };
 
 export const updateSearchbarQuery = searchTerm => {
   return {
