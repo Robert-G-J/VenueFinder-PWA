@@ -1,7 +1,7 @@
-import fsqApi from "./fsqApi";
-import { mockResponse } from '../helpers/venues';
+import fsqApi from "./fsqAPI";
+import { mockResponse } from "../helpers/venues";
 
-jest.mock('./fsqApi');
+jest.mock("./fsqApi");
 
 describe("Foursquare API", () => {
   it("Should return venues", async () => {

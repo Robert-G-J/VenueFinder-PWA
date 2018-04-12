@@ -1,5 +1,5 @@
 import localforage from "localforage";
-import fsqApi from './fsqApi';
+import fsqApi from './fsqAPI';
 
 const suggestCompletion = async params => {
   const cacheKey = `${params.query}|${params.ll}`;
