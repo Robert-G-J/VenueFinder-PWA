@@ -34,7 +34,8 @@ export function getPosition() {
         error => {
           dispatch(currentPositionFailure);
           reject(error);
-        }
+        },
+        options
       );
     });
   };
