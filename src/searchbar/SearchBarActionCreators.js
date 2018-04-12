@@ -1,6 +1,6 @@
 /* eslint-disable */
 import types from "../constants";
-import { suggestCompletion } from "../services/fsqAPI";
+import suggestCompletion from "../services/suggestCompletion";
 
 export const isGettingCurrentPosition = {
   type: types.IS_GETTING_POSITION
@@ -20,7 +20,7 @@ export const currentPositionFailure = {
 export function getPosition() {
   const options = {
     enableHighAccuracy: false,
-    timeout: 250,
+    timeout: 30000,
     maximumAge: 100000
   };
   return dispatch => {

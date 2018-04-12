@@ -5,7 +5,7 @@ import thunk from "redux-thunk";
 import configureMockStore from "redux-mock-store";
 import * as actions from "./SearchBarActionCreators";
 import types from "../constants";
-import { suggestCompletion } from "../services/fsqAPI";
+// import suggestCompletion from "../services/fsqAPI";
 import { mockResponse } from "../helpers/venues";
 
 const middlewares = [thunk];
